@@ -1,0 +1,28 @@
+{% extends "template.html" %}
+{% block conteudo %}
+	<div class="l-cards">
+		{% for mensagem in mensagens %}
+			<div class="card bg-dark text-white">
+			  <img
+				src="https://mdbootstrap.com/img/new/slides/017.jpg"
+				class="card-img"
+				alt="..."
+			  />
+		  <div class="card-img-overlay">
+				{% if mensagem.categoria == 1 %}
+				<h4><b>Mensagem de Luz</b></h4>
+			  {% endif %}
+			  {% if mensagem.categoria == 2 %}
+				<h4><b>Minuto de Sabedoria</b></h4>
+			  {% endif %}
+			  {% if mensagem.categoria == 3 %}
+				<h4><b>Mensagem de Jesus</b></h4>
+			  {% endif %}
+			<p class="card-text">
+			  <p>{{ mensagem.descricao }}</p>
+			</p>
+		  </div>
+		</div>
+		{% endfor %}
+	</div>
+{% endblock %}

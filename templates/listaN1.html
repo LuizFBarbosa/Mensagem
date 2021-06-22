@@ -1,0 +1,35 @@
+{% extends "template.html" %}
+{% block conteudo %}
+    <div class="row">
+		{% for mensagem in mensagens %}
+            <div class="col">
+                <div class="card-big-shadow">
+                    <div class="card card-just-text" data-background="color"
+                         {% if mensagem.categoria == 1 %}
+                            data-color="blue"
+                         {% endif %}
+                         {% if mensagem.categoria == 2 %}
+                            data-color="green"
+                         {% endif %}
+                         {% if mensagem.categoria == 3 %}
+                            data-color="yellow"
+                         {% endif %}
+                         data-radius="none">
+                        <div class="content">
+                            {% if mensagem.categoria == 1 %}
+                                <h4><b>Mensagem de Luz</b></h4>
+                            {% endif %}
+                            {% if mensagem.categoria == 2 %}
+                                <h4><b>Minuto de Sabedoria</b></h4>
+                            {% endif %}
+                            {% if mensagem.categoria == 3 %}
+                                <h4><b>Mensagem de Jesus</b></h4>
+                            {% endif %}
+                              <p>{{ mensagem.descricao }}</p>
+                        </div>
+                    </div> <!-- end card -->
+                </div>
+            </div>
+		{% endfor %}
+    </div>
+{% endblock %}

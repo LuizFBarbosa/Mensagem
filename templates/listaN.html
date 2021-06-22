@@ -1,0 +1,20 @@
+{% extends "template.html" %}
+{% block conteudo %}
+
+		{% for mensagem in mensagens %}
+            <div id="app" class="container">
+                <card data-image="https://images.unsplash.com/photo-1479660656269-197ebb83b540?dpr=2&auto=compress,format&fit=crop&w=1199&h=798&q=80&cs=tinysrgb&crop=">
+                     {% if mensagem.categoria == 1 %}
+					  	<h4><b>Mensagem de Luz</b></h4>
+					  {% endif %}
+					  {% if mensagem.categoria == 2 %}
+					  	<h4><b>Minuto de Sabedoria</b></h4>
+					  {% endif %}
+					  {% if mensagem.categoria == 3 %}
+					  	<h4><b>Mensagem de Jesus</b></h4>
+					  {% endif %}
+					  <p>{{ mensagem.descricao }}</p>
+                </card>
+            </div>
+		{% endfor %}
+{% endblock %}
